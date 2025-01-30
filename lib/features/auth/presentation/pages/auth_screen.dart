@@ -1,0 +1,3 @@
+/* 
+  This file will check if the user is already logged in or not and redirect to login scrren or home screen accordingly
+*/
