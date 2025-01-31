@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
-  final Function(String) onItemTap; // Callback for menu item selection
-
-  const CustomDrawer({super.key, required this.onItemTap});
+  const CustomDrawer({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +53,28 @@ class CustomDrawer extends StatelessWidget {
       title: Text(title, style: TextStyle(fontSize: 16)),
       onTap: () {
         Navigator.pop(context); // Close drawer
-        onItemTap(title); // Callback to handle navigation
+        _navigateToScreen(title, context); // Callback to handle navigation
       },
     );
+  }
+
+  void _navigateToScreen(String title, BuildContext context) {
+    switch (title) {
+      case "Home":
+        Navigator.pushNamed(context, '/home'); // Navigate to Home screen
+        break;
+      case "Profile":
+        Navigator.pushNamed(context, '/profile'); // Navigate to Profile screen
+        break;
+      case "Settings":
+        Navigator.pushNamed(
+            context, '/settings'); // Navigate to Settings screen
+        break;
+      case "Logout":
+        // Handle logout here
+        break;
+      default:
+        break;
+    }
   }
 }

@@ -11,15 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String _selectedPage = "Home"; // Default selected page
   final TextEditingController _searchController = TextEditingController();
-
-  void _handleNavigation(String page) {
-    setState(() {
-      _selectedPage = page; // Update UI when drawer item is clicked
-    });
-    print("Navigating to: $page");
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(onPressed: () {}, icon: Icon(Icons.message_outlined))
         ],
       ),
-      drawer: CustomDrawer(onItemTap: _handleNavigation),
+      drawer: CustomDrawer(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -68,13 +60,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: IconButton(onPressed: () {}, icon: Icon(Icons.tune)),
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   MyCard(
                     logo: 'assets/images/1.jpg',
                     subtitle: 'Hello',
                     title: 'JeeVijay IT Solutions',
                     desc: 'Textile',
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  MyCard(
+                    logo: 'assets/images/2.jpg',
+                    subtitle: 'Hello',
+                    title: 'JeeVijay IT',
+                    desc: 'Textile',
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  MyCard(
+                    logo: 'assets/images/2.jpg',
+                    subtitle: 'Hello',
+                    title: 'JeeVijay IT',
+                    desc: 'Textile',
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                   MyCard(
                     logo: 'assets/images/2.jpg',

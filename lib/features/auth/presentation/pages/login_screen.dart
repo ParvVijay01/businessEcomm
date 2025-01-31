@@ -72,6 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                   child: MyTextField(
+                    isEnabled: false,
                     showCountryCode: false,
                     controller: emailController,
                     labelText: 'Email',
@@ -84,6 +85,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                   child: MyTextField(
+                    isEnabled: true,
+
                     showCountryCode: false,
                     controller: passwordController,
                     labelText: 'Password',

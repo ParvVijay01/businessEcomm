@@ -108,6 +108,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                         child: MyTextField(
+                          isEnabled: false,
                           showCountryCode: false,
                           controller: nameController,
                           labelText: 'Name',
@@ -119,6 +120,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                         child: MyTextField(
+                          isEnabled: false,
                           showCountryCode: true,
                           controller: phoneNumberController,
                           labelText: 'Phone Number',
@@ -131,6 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                         child: MyTextField(
+                          isEnabled: false,
                           showCountryCode: false,
                           controller: emailController,
                           labelText: 'Email',
@@ -143,6 +146,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                         child: MyTextField(
+                          isEnabled: false,
                           showCountryCode: false,
                           controller: passwordController,
                           labelText: 'Password',
@@ -155,6 +159,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                         child: MyTextField(
+                          isEnabled: false,
                           showCountryCode: false,
                           controller: confirmPasswordController,
                           labelText: 'Confirm Password',

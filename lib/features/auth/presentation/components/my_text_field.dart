@@ -3,29 +3,42 @@ import 'package:flutter/services.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 class MyTextField extends StatelessWidget {
-  final TextEditingController controller;
-  final String labelText;
+  final TextEditingController? controller;
+  final String? labelText;
   final bool? obscureText;
   final TextInputType? keyboardType;
   final bool showCountryCode;
   final Function(String, String)? onPhoneChanged;
+  final bool isEnabled;
+  final String? hintText;
+  final int? maxLines;
+  final int? minLines;
 
   const MyTextField({
     super.key,
-    required this.controller,
-    required this.labelText,
+    this.controller,
+    this.labelText,
     this.obscureText,
     this.keyboardType,
     required this.showCountryCode,
     this.onPhoneChanged,
+    required this.isEnabled,
+    this.hintText,
+    this.maxLines,
+    this.minLines,
   });
 
   @override
   Widget build(BuildContext context) {
     return showCountryCode
         ? IntlPhoneField(
+            enabled: isEnabled,
             controller: controller,
             decoration: InputDecoration(
+              hintText: hintText,
+              hintStyle: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+              ),
               labelText: labelText,
               labelStyle: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
@@ -58,13 +71,23 @@ class MyTextField extends StatelessWidget {
             },
           )
         : TextField(
+            enabled: isEnabled,
             controller: controller,
             obscureText: obscureText ?? false,
             keyboardType: keyboardType,
             decoration: InputDecoration(
+              hintText: hintText,
+              hintStyle: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+              ),
               labelText: labelText,
               labelStyle: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
+              ),
+              disabledBorder: OutlineInputBorder(
+                borderSide:
+                    BorderSide(color: Theme.of(context).colorScheme.primary),
+                borderRadius: BorderRadius.circular(12.0),
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide:

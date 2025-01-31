@@ -97,6 +97,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 10, 20, 5),
                         child: MyTextField(
+                          isEnabled: false,
                           controller: companyNameController,
                           labelText: "Company Name",
                           showCountryCode: false,
@@ -105,6 +106,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 10, 20, 5),
                         child: MyTextField(
+                          isEnabled: false,
                           controller: companyNumberController,
                           labelText: "Company Number",
                           showCountryCode: true,
@@ -114,6 +116,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 10, 20, 5),
                         child: MyTextField(
+                          isEnabled: false,
                           controller: companyAddressController,
                           labelText: "Company Address",
                           showCountryCode: false,
@@ -123,6 +126,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 10, 20, 5),
                         child: MyTextField(
+                          isEnabled: false,
                           controller: categoryController,
                           labelText: "Business Category",
                           showCountryCode: false,
@@ -131,6 +135,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 10, 20, 5),
                         child: MyTextField(
+                          isEnabled: false,
                           controller: gstNumberController,
                           labelText: "GST Number",
                           showCountryCode: false,
