@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 class MyTextField extends StatelessWidget {
@@ -8,6 +9,7 @@ class MyTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool showCountryCode;
   final Function(String, String)? onPhoneChanged;
+
   const MyTextField({
     super.key,
     required this.controller,
@@ -28,20 +30,27 @@ class MyTextField extends StatelessWidget {
               labelStyle: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
               ),
-              // border when unselected
               enabledBorder: OutlineInputBorder(
                 borderSide:
                     BorderSide(color: Theme.of(context).colorScheme.primary),
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              // border when selected
               focusedBorder: OutlineInputBorder(
                 borderSide:
                     BorderSide(color: Theme.of(context).colorScheme.secondary),
                 borderRadius: BorderRadius.circular(12.0),
               ),
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 16, horizontal: 12),
             ),
             initialCountryCode: 'IN',
+            dropdownIcon: Icon(Icons.arrow_drop_down, color: Colors.black),
+            flagsButtonPadding: EdgeInsets.only(left: 8),
+            disableLengthCheck: true, // Avoids showing max length validation
+            inputFormatters: [
+              FilteringTextInputFormatter.digitsOnly, // Allows only numbers
+              LengthLimitingTextInputFormatter(10), // Limits input to 10 digits
+            ],
             onChanged: (phone) {
               if (onPhoneChanged != null) {
                 onPhoneChanged!(phone.completeNumber, phone.countryCode);
@@ -57,18 +66,18 @@ class MyTextField extends StatelessWidget {
               labelStyle: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
               ),
-              // border when unselected
               enabledBorder: OutlineInputBorder(
                 borderSide:
                     BorderSide(color: Theme.of(context).colorScheme.primary),
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              // border when selected
               focusedBorder: OutlineInputBorder(
                 borderSide:
                     BorderSide(color: Theme.of(context).colorScheme.secondary),
                 borderRadius: BorderRadius.circular(12.0),
               ),
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 16, horizontal: 12),
             ),
           );
   }

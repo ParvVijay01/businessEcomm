@@ -1,4 +1,4 @@
 import 'package:flutter/material.dart';
 
 const textColor = Colors.black;
-const btnTxtColor = Color(0xffF4EDD3);
+const btnTxtColor = Color.fromARGB(255, 255, 255, 255);

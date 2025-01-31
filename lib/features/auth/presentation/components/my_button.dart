@@ -17,7 +17,7 @@ class MyButton extends StatelessWidget {
         decoration: BoxDecoration(
           // Button Color
           color: Theme.of(context).colorScheme.primary,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(12),
         ),
 
         child: Center(

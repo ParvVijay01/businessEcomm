@@ -8,5 +8,5 @@ ThemeData lightMode = ThemeData(
     onPrimary: Color(0xFFA6CDC6),
     error: Colors.red,
   ),
-  scaffoldBackgroundColor: Color(0xFFF4EDD3),
+  scaffoldBackgroundColor: Color(0xFFFFFFFF),
 );

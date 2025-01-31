@@ -8,15 +8,13 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
+      child: Column(
         children: [
           // Drawer Header
           DrawerHeader(
             decoration:
                 BoxDecoration(color: Theme.of(context).scaffoldBackgroundColor),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
                   radius: 30,
@@ -24,19 +22,25 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Text("User Name",
-                    style: TextStyle(color: Colors.white, fontSize: 18)),
+                    style: TextStyle(color: Colors.black, fontSize: 18)),
                 Text("user@example.com",
-                    style: TextStyle(color: Colors.white70)),
+                    style: TextStyle(color: Colors.black54)),
               ],
             ),
           ),
-          
-          // Drawer Items
-          _buildDrawerItem(Icons.home, "Home", context),
-          _buildDrawerItem(Icons.person, "Profile", context),
-          _buildDrawerItem(Icons.settings, "Settings", context),
-          Divider(),
-          _buildDrawerItem(Icons.logout, "Logout", context),
+
+          // Menu Items
+          Expanded(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                _buildDrawerItem(Icons.home, "Home", context),
+                _buildDrawerItem(Icons.person, "Profile", context),
+                _buildDrawerItem(Icons.settings, "Settings", context),
+                _buildDrawerItem(Icons.logout, "Logout", context),
+              ],
+            ),
+          ),
         ],
       ),
     );

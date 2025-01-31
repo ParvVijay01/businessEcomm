@@ -1,4 +1,5 @@
 import 'package:business_ecomm/features/home/presentation/components/drawer.dart';
+import 'package:business_ecomm/features/home/presentation/components/profile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -40,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               hintText: "Search...",
               filled: true,
-              fillColor: Colors.white,
+              fillColor: Color(0xFFF5F5F5),
               contentPadding: EdgeInsets.symmetric(horizontal: 10),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
@@ -57,92 +58,35 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       drawer: CustomDrawer(onItemTap: _handleNavigation),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 5, right: 5),
-            child: IconButton(onPressed: () {}, icon: Icon(Icons.tune)),
-          ),
-          Card(
-            elevation: 5,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12), // Rounded corners
-            ),
-            color: Theme.of(context).colorScheme.primary,
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height / 4,
-              width: MediaQuery.of(context).size.width,
-              child: Row(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 5, right: 5),
+                child: IconButton(onPressed: () {}, icon: Icon(Icons.tune)),
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Flexible(
-                    flex: 1,
-                    child: Image.asset(
-                      'assets/images/1.jpg',
-                      width: MediaQuery.of(context).size.width / 3,
-                      fit: BoxFit.cover,
-                    ),
+                  MyCard(
+                    logo: 'assets/images/1.jpg',
+                    subtitle: 'Hello',
+                    title: 'JeeVijay IT Solutions',
+                    desc: 'Textile',
                   ),
-                  Flexible(
-                    flex: 2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "JeeVijay IT",
-                          style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    ),
+                  MyCard(
+                    logo: 'assets/images/2.jpg',
+                    subtitle: 'Hello',
+                    title: 'JeeVijay IT',
+                    desc: 'Textile',
                   )
                 ],
               ),
-            ),
+            ],
           ),
-          Card(
-            elevation: 5,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12), // Rounded corners
-            ),
-            color: Theme.of(context).colorScheme.primary,
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height / 4,
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                children: [
-                  Flexible(
-                    flex: 1,
-                    child: Image.asset(
-                      'assets/images/1.jpg',
-                      width: MediaQuery.of(context).size.width / 3,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Flexible(
-                    flex: 2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "JeeVijay IT",
-                          style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )
-        ],
+        ),
       ),
     );
   }

@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:business_ecomm/features/auth/presentation/components/my_button.dart';
 import 'package:business_ecomm/features/auth/presentation/components/my_text_field.dart';
-import 'package:business_ecomm/features/auth/presentation/pages/signup_page.dart';
+import 'package:business_ecomm/utility/snackbar_helper.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +17,22 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  bool isValidEmail(String email) {
+    final RegExp emailRegex = RegExp(
+      r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
+    );
+    return emailRegex.hasMatch(email);
+  }
+
+  void checkEmail() {
+    String email = emailController.text;
+    if (!isValidEmail(email)) {
+      return SnackBarHelper.showErrorSnackBar('Enter a valid email');
+    } else {
+      return;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,10 +96,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
                   child: MyButton(
-                      onTap: () {
-                        log('Btn clicked');
-                      },
-                      text: "Login"),
+                    onTap: () {
+                      log('Btn clicked');
+                      checkEmail();
+                    },
+                    text: "Login",
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
@@ -109,12 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontWeight: FontWeight.bold),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const SignUpScreen(),
-                                  ),
-                                );
+                                Navigator.pushNamed(context, '/signup');
                                 log('Txt Btn clicked');
                               },
                           ),
